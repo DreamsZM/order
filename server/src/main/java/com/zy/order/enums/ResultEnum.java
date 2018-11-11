@@ -24,7 +24,14 @@ public enum ResultEnum {
 
     ORDER_CANCEL_SUCCESS(21, "订单取消成功"),
 
-    ORDER_FINISH_SUCCESS(22, "订单完成成功");
+    ORDER_FINISH_SUCCESS(22, "订单完成成功"),
+
+    ORDER_NOT_EXISTS(23, "订单不存在"),
+
+    ORDER_DETAIL_NOT_EXIST(24, "订单详情不存在"),
+
+
+    ;
 
     private Integer code;
 
