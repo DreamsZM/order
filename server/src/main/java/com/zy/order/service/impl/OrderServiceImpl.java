@@ -44,7 +44,6 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO create(OrderDTO orderDTO) {
         //订单id
         String orderId = KeyUtil.getUniqueKey();
-        BigDecimal orderAmount = new BigDecimal(0);
         List<OrderDetail> orderDetailList = orderDTO.getOrderDetailList();
 
         List<String> productIdList = orderDetailList.stream()
@@ -52,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
         List<ProductInfoOutput> productInfoOutputList = productClient.listForOrder(productIdList);
 
+        BigDecimal orderAmount = new BigDecimal(0);
         for (OrderDetail orderDetail : orderDetailList){
             //查询商品信息，得到商品单价
             for (ProductInfoOutput productInfo : productInfoOutputList){
